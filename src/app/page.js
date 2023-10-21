@@ -30,8 +30,8 @@ export default function Home() {
         <Navbar />
         <HeroSection />
         <VideoSection />
-        {/* <PortfolioSection />
-        <AboutSection />
+        <PortfolioSection />
+        {/* <AboutSection />
         <TeamSection />
         <FooterSection /> */}
       </main>
