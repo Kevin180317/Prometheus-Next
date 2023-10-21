@@ -2,10 +2,10 @@ import React from 'react';
 
 function VideoSection() {
   return (
-    <div className='flex flex-col justify-center h-screen mt-8 border-t border-black'>
+    <div className='flex flex-col h-screen py-16 mt-8'>
       <h1>VideoSection</h1>
-      <div className='relative video-background'>
-        <video className='mx-auto' autoPlay muted loop>
+      <div className='relative w-full h-screen'>
+        <video className='mx-auto' autoPlay muted loop style={{ objectFit: 'cover' }}>
           <source src='/video.mov' type='video/mp4' />
         </video>
         <div className='absolute top-0 left-0 flex flex-col items-start justify-center w-full h-full p-24'>
@@ -20,4 +20,4 @@ function VideoSection() {
   );
 }
 
-export default VideoSection;
+export default VideoSection

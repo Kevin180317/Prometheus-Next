@@ -13,7 +13,7 @@ function PortfolioSection() {
   ];
 
   return (
-    <div id='portafolio' className="h-[70vh] flex flex-col items-center justify-center w-full p-8 bg-white border-t border-black mt-12">
+    <div id='portafolio' className="flex flex-col items-center justify-center w-full mt-12 bg-white border-t border-black ">
       <h1 className="mt-16 font-bold text-black text-7xl mb-28">Mira nuestros portafolio</h1>
       
       <div className="flex justify-center mb-8">

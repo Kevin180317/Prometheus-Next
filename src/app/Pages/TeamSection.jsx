@@ -18,7 +18,7 @@ function TeamSection() {
         transition={{ duration: 0.5 }}
         className="mt-8 text-5xl font-bold text-black md:text-6xl lg:text-7xl"
       >
-        Somos tu mejor aliado.
+        Convertimos tus grandes ideas en soluciones impactantes.
       </motion.h1>
 
       <div className="flex flex-col items-start justify-around w-full max-w-screen-xl space-y-8 md:space-y-0 md:flex-row">
@@ -30,9 +30,9 @@ function TeamSection() {
           className="flex flex-col mt-16 space-y-4"
         >
           {[
-            { text: 'Funcionamos con mucho café y tu dinero.', icon: '☕' }, 
-            { text: 'Funcionamos con mucho café y tu dinero.', icon: '🔧' }, 
-            { text: 'Funcionamos con mucho café y tu dinero.', icon: '🔨' }, 
+            { text: 'Somos una empresa 100% Tijuanense que conoce el dinamismo binacional', icon: '☕' }, 
+            { text: 'Nuestro grupo de expertos se adaptarán a tus requerimientos', icon: '🔧' }, 
+            { text: 'Te guiaremos para moldear tus mejores ideas en productos innovadores.', icon: '🔨' }, 
           ].map((item, index) => (
             <div key={index} className="flex items-center mt-8 space-x-2 md:mt-28">
               <span className="text-2xl">{item.icon}</span>

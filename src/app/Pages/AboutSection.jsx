@@ -37,14 +37,14 @@ function AboutSection() {
 
   return (
     <section id="servicios"
-    className="flex flex-col items-center justify-center w-full py-16 bg-white border-t border-black"
+    className="flex flex-col items-center justify-center w-full bg-white border-t border-black mt-80"
     ref={ref}
     >
       <motion.h1
         initial={{ x: -50, opacity: 0 }}
         animate={isInView ? { x: 0, opacity: 1 } : {}}
         transition={{ duration: 0.5 }}
-        className="mb-24 text-5xl font-bold text-black md:text-6xl lg:text-7xl"
+        className="mt-12 mb-24 text-5xl font-bold text-black md:text-6xl lg:text-7xl"
       >
         Mira nuestros servicios
       </motion.h1>
