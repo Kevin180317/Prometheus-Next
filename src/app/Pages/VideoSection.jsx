@@ -4,10 +4,17 @@ function VideoSection() {
   return (
     <div className='flex flex-col justify-center h-screen mt-8 border-t border-black'>
       <h1>VideoSection</h1>
-      <div className='video-background'>
+      <div className='relative video-background'>
         <video className='mx-auto' autoPlay muted loop>
           <source src='/video.mov' type='video/mp4' />
         </video>
+        <div className='absolute top-0 left-0 flex flex-col items-start justify-center w-full h-full p-24'>
+          <h2 className='text-5xl font-bold text-white'>El futuro de la conexión digital</h2>
+          <p className='mb-4 text-2xl text-white'>
+          Estamos trascendiendo las pantallas 2D e incursionando en experiencias envolventes en el metaverso para dar<br />forma a la próxima evolución de la tecnología social.
+          </p>
+          <button className='px-4 py-2 font-bold text-black bg-white rounded-2xl hover:bg-gray-200'>Más información</button>
+        </div>
       </div>
     </div>
   );
