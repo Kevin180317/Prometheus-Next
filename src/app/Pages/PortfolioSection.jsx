@@ -13,8 +13,7 @@ function PortfolioSection() {
   ];
 
   return (
-    <div id='portafolio' className="h-[70vh] flex flex-col items-center justify-center w-full p-8 bg-white border-t border-black mt-72"
-    >
+    <div id='portafolio' className="h-[70vh] flex flex-col items-center justify-center w-full p-8 bg-white border-t border-black mt-12">
       <h1 className="mt-16 font-bold text-black text-7xl mb-28">Mira nuestros portafolio</h1>
       
       <div className="flex justify-center mb-8">
@@ -33,7 +32,7 @@ function PortfolioSection() {
         {portfolioItems
           .filter(item => activeCategory === 'TODAS' || item.category === activeCategory)
           .map(item => (
-            <div key={item.title} className="flex flex-col items-center p-16 border border-black shadow-large ">
+            <div key={item.title} className="flex flex-col items-center p-8 border border-black md:p-16 shadow-large ">
               <span className="mb-4 text-4xl">{item.icon}</span>
               <p className='font-bold text-black'>{item.title}</p>
             </div>

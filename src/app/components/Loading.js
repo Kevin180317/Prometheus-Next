@@ -7,6 +7,8 @@ export default function Loading() {
             <motion.img
                 src="/logo.png"
                 alt="Loading Logo"
+                width={100}
+                height={100}
                 initial="out"
                 animate={{ scale: [1, 1.1, 1] }}
                 transition={{

@@ -30,10 +30,10 @@ export default function Home() {
         <Navbar />
         <HeroSection />
         <VideoSection />
-        <PortfolioSection />
+        {/* <PortfolioSection />
         <AboutSection />
         <TeamSection />
-        <FooterSection />
+        <FooterSection /> */}
       </main>
     </NextUIProvider>
   );
