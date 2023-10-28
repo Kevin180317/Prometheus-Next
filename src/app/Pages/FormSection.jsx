@@ -30,21 +30,21 @@ import Link from "next/link";
 
 function FormSection() {
 
-  // const handleSubmit = async (event) => {
-  //   event.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
   
-  //   const name = event.target.elements.name.value;
-  //   const email = event.target.elements.email.value;
-  //   const message = event.target.elements.message.value;
+    const name = event.target.elements.name.value;
+    const email = event.target.elements.email.value;
+    const message = event.target.elements.message.value;
   
-  //   await fetch("/api/send", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({ name, mail: email, message }),
-  //   });
-  // };
+    await fetch("/api/send", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, mail: email, message }),
+    });
+  };
 
   return (
     <div className="p-8 mt-8 border-t border-black min-h-min">
