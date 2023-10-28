@@ -20,7 +20,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative w-full mt-8 border-t border-black">
+    <footer className="relative w-full p-8 mt-8 border-t border-black">
       <div className="flex flex-row flex-wrap items-center justify-center mt-8 text-center bg-white gap-y-6 gap-x-12 md:justify-between">
         <Image
           src="/logo.png"

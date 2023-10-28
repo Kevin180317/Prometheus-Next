@@ -16,7 +16,7 @@ function TeamSection() {
         initial={{ y: -50, opacity: 0 }}
         animate={isInView ? { y: 0, opacity: 1 } : {}}
         transition={{ duration: 0.5 }}
-        className="mt-8 text-5xl font-bold text-black md:text-6xl lg:text-7xl"
+        className="px-12 mt-8 text-4xl font-bold text-black md:text-4xl lg:text-6xl"
       >
         Convertimos tus grandes ideas en soluciones impactantes.
       </motion.h1>

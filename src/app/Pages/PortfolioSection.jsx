@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 function PortfolioSection() {
   const [activeCategory, setActiveCategory] = useState('TODAS');
 
-  const categories = ['TODAS', 'Aplicaciones', 'Gabado Láser', 'Desarrollo Web'];
+  // const categories = ['TODAS', 'Aplicaciones', 'Gabado Láser', 'Desarrollo Web'];
+  const categories = ['TODAS',];
 
   const portfolioItems = [
     { category: 'Aplicaciones', icon: '📱', title: 'Aplicaciones' },
@@ -14,7 +15,7 @@ function PortfolioSection() {
 
   return (
     <div id='portafolio' className="flex flex-col items-center justify-center w-full mt-12 bg-white border-t border-black ">
-      <h1 className="mt-16 font-bold text-black text-7xl mb-28">Mira nuestros portafolio</h1>
+      <h1 className="p-8 mt-16 font-bold text-black text-7xl mb-28">Mira nuestros portafolio</h1>
       
       <div className="flex justify-center mb-8">
         {categories.map(category => (
@@ -28,7 +29,7 @@ function PortfolioSection() {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 ">
         {portfolioItems
           .filter(item => activeCategory === 'TODAS' || item.category === activeCategory)
           .map(item => (

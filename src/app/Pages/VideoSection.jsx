@@ -5,7 +5,7 @@ function VideoSection() {
     <div className='flex flex-col h-screen py-16 mt-8'>
       <h1>VideoSection</h1>
       <div className='relative w-full h-screen'>
-        <video className='mx-auto' autoPlay muted loop style={{ objectFit: 'cover' }}>
+        <video className='w-screen h-screen' autoPlay muted loop style={{ objectFit: 'cover' }}>
           <source src='/video.mov' type='video/mp4' />
         </video>
         <div className='absolute top-0 left-0 flex flex-col items-start justify-center w-full h-full p-24'>

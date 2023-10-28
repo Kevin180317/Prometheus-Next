@@ -1,46 +1,32 @@
 import React from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@nextui-org/react";
-
+import Image from "next/image";
 const HeroSection = () => {
-  // const ref = useRef(null);
-  // const inView = useInView(ref);
-
   return (
     <section
       id="inicio"
-      className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-6 items-center justify-center min-h-[80vh] bg-white p-4"
+      className="grid items-center justify-center min-h-screen grid-cols-1 gap-6 p-4 bg-white lg:grid-cols-2"
     >
-      <motion.div
-        initial={{ opacity: 0, x: 50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5 }}
-        className="flex justify-center w-full"
-      >
+      <div className="flex justify-center w-full">
         <motion.div
-          initial={{ rotate: 0 }}
-          animate={{ rotate: 90 }}
-          transition={{ duration: 2 }}
-          className="w-full h-auto mx-auto lg:order-2 lg:w-full"
+          initial={{ rotateZ: 0 }}
+          animate={{ rotateZ: 90 }}
+          transition={{ duration: 1, type: "spring" }}
+          duration={100}
         >
-           <Image
-            src="/bg.png"
-            width={100}
-            height={700}
-            alt="Spider Image"
-            className="w-full border rounded-xl shadow-white"
-          /> 
+          <Image
+            src="/bg.png" 
+            alt="Hero Image"
+            width={750}
+            height={300}
+            className="object-cover object-center shadow-md rounded-3xl"
+          />
         </motion.div>
-      </motion.div>
+      </div>
 
-      <motion.div
-        initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5 }}
-        className="flex flex-col justify-center w-full mt-8 text-center lg:mt-0 lg:text-left"
-      >
+      <div className="flex flex-col justify-center w-full text-center lg:mt-0 lg:text-left">
         <h1 className="text-3xl font-bold tracking-wider text-black lg:text-4xl xl:text-5xl">
           Poderosas soluciones digitales con Prometheus
         </h1>
@@ -57,7 +43,7 @@ const HeroSection = () => {
             <span className="text-white">Cotizar</span>
           </Button>
         </Link>
-      </motion.div>
+      </div>
     </section>
   );
 };

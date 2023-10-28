@@ -44,7 +44,7 @@ function AboutSection() {
         initial={{ x: -50, opacity: 0 }}
         animate={isInView ? { x: 0, opacity: 1 } : {}}
         transition={{ duration: 0.5 }}
-        className="mt-12 mb-24 text-5xl font-bold text-black md:text-6xl lg:text-7xl"
+        className="px-12 mt-12 mb-24 text-5xl font-bold text-black md:text-6xl lg:text-7xl"
       >
         Mira nuestros servicios
       </motion.h1>

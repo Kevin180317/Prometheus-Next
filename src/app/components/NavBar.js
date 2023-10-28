@@ -69,7 +69,7 @@ function Navbar() {
           <Link
             key={index}
             href={item.link}
-            className={`hover:text-blue-500 ${activeSection === item.link ? "text-blue-500" : ""}`}
+            className={`hover:text-blue-500 text-white ${activeSection === item.link ? "text-blue-500" : ""}`}
             onClick={(e) => handleSmoothScroll(e, item.link)}
           >
             {item.name}
