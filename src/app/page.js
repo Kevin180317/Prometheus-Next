@@ -33,7 +33,6 @@ export default function Home() {
         <VideoSection />
         <AboutSection />
         <TeamSection />
-        <PortfolioSection />
         <Formulario />
         <FooterSection />
       </main>
