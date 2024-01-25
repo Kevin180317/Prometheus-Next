@@ -49,7 +49,7 @@ function AboutSection() {
         Mira nuestros servicios
       </motion.h1>
 
-      <div className="grid w-full max-w-screen-lg grid-cols-1 gap-8 px-4 border rounded-full md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid w-full max-w-screen-lg grid-cols-1 gap-8 px-4 md:grid-cols-2 lg:grid-cols-4">
         {cards.map((item, index) => (
           <motion.div
             key={index}
