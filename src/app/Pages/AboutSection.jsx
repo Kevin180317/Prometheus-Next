@@ -37,7 +37,7 @@ function AboutSection() {
 
   return (
     <section id="servicios"
-    className="flex flex-col items-center justify-center w-full bg-white border-t border-black mt-80"
+    className="flex flex-col items-center justify-center w-full bg-white border-t border-black"
     ref={ref}
     >
       <motion.h1

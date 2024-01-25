@@ -1,19 +1,15 @@
-import { NextResponse } from "next/server";
-import { Resend } from "resend";
+export const POST = async (req, res) => {
+  if (req.method === 'POST') {
+    const { email, subject, message } = req.body;
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+    console.log(`Email: ${email}`);
+    console.log(`Subject: ${subject}`);
+    console.log(`Message: ${message}`);
 
-export async function POST(req, res) {
-  const { name, mail, message } = await req.json();
-  try {
-    const data = await resend.emails.send({
-        from: 'onboarding@resend.dev',
-        to: 'contact@prometheustij.com',
-        subject: 'New message from ' + name,
-        html: 'Mail : ' + mail + '<br>Message : ' + message,
-      });
-    return NextResponse.json(data);
-  } catch (error) {
-    return NextResponse.json({ error });
+    // Aquí puedes agregar el código para enviar el correo electrónico con NodeMailer
+
+    res.status(200).json({ message: 'Email received' });
+  } else {
+    res.status(405).json({ message: 'We only accept POST' });
   }
 }

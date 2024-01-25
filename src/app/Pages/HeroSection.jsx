@@ -9,11 +9,11 @@ const HeroSection = () => {
       id="inicio"
       className="grid items-center justify-center min-h-screen grid-cols-1 gap-6 p-4 bg-white lg:grid-cols-2"
     >
-      <div className="flex justify-center w-full">
+      <div className="flex items-center justify-center w-full mt-20">
         <motion.div
           initial={{ rotateZ: 0 }}
           animate={{ rotateZ: 90 }}
-          transition={{ duration: 1, type: "spring" }}
+          transition={{ duration: 2, type: "spring" }}
           duration={100}
         >
           <Image

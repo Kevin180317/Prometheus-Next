@@ -17,13 +17,16 @@
     "@nextui-org/react": "^2.1.13",
     "framer-motion": "^10.16.4",
     "next": "^14.0.0",
-    "react": "^18",
-    "react-dom": "^18",
+    "nodemailer": "^6.9.8",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-icons": "^4.11.0",
     "react-player": "^2.13.0",
-    "resend": "^1.1.0"
+    "resend": "^1.0.0"
   },
   "devDependencies": {
+    "@types/node": "20.8.9",
+    "@types/react": "18.2.33",
     "autoprefixer": "^10",
     "eslint": "^8",
     "eslint-config-next": "13.5.4",

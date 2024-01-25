@@ -2,8 +2,7 @@ import React from 'react';
 
 function VideoSection() {
   return (
-    <div className='flex flex-col h-screen py-16 mt-8'>
-      <h1>VideoSection</h1>
+    <div className='flex flex-col h-screen'>
       <div className='relative w-full h-screen'>
         <video className='w-screen h-screen' autoPlay muted loop style={{ objectFit: 'cover' }}>
           <source src='/video.mov' type='video/mp4' />

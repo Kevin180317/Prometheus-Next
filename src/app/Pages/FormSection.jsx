@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   Container,
   Flex,
@@ -28,24 +28,31 @@ import {
 import { BsPerson, BsInstagram } from "react-icons/bs";
 import Link from "next/link";
 
-function FormSection() {
+function FormSection() { 
+  const [formState, setFormState] = useState({
+    email: '',
+    subject: '',
+    message: '',
+  });
 
   const handleSubmit = async (event) => {
     event.preventDefault();
   
-    const name = event.target.elements.name.value;
-    const email = event.target.elements.email.value;
-    const message = event.target.elements.message.value;
-  
-    await fetch("/api/send", {
-      method: "POST",
+    const response = await fetch('/api/send', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ name, mail: email, message }),
+      body: JSON.stringify(formState),
     });
+  
+    if (response.ok) {
+      console.log('Email sent successfully');
+    } else {
+      console.error('Error sending email');
+    }
   };
-
+   
   return (
     <div className="p-8 mt-8 border-t border-black min-h-min">
       <Container bg="#FFF" maxW="full" mt={0} centerContent overflow="hidden">
@@ -138,8 +145,7 @@ function FormSection() {
                   <Box bg="white" borderRadius="lg">
                     <Box m={8} color="#0B0E3F">
                       <VStack spacing={5}>
-                        {/* <form onSubmit={handleSubmit}> */}
-                          <FormControl id="name">
+                        <FormControl id="name">
                             <FormLabel>Your Name</FormLabel>
                             <InputGroup borderColor="#E0E1E7">
                               <InputLeftElement pointerEvents="none">
@@ -178,8 +184,7 @@ function FormSection() {
                             >
                               Send Message
                             </Button>
-                          </FormControl>
-                        {/* </form> */}
+                          </FormControl> 
                       </VStack>
                     </Box>
                   </Box>
