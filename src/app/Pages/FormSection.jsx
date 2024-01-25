@@ -28,31 +28,7 @@ import {
 import { BsPerson, BsInstagram } from "react-icons/bs";
 import Link from "next/link";
 
-function FormSection() { 
-  const [formState, setFormState] = useState({
-    email: '',
-    subject: '',
-    message: '',
-  });
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-  
-    const response = await fetch('/api/send', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formState),
-    });
-  
-    if (response.ok) {
-      console.log('Email sent successfully');
-    } else {
-      console.error('Error sending email');
-    }
-  };
-   
+function FormSection() {    
   return (
     <div className="p-8 mt-8 border-t border-black min-h-min">
       <Container bg="#FFF" maxW="full" mt={0} centerContent overflow="hidden">
