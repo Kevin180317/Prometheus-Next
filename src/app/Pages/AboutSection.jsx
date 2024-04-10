@@ -1,79 +1,55 @@
-import React, { useRef, useState } from "react";
-import {
-  BeakerIcon,
-  LockClosedIcon,
-  GlobeAltIcon,
-  MagnifyingGlassCircleIcon,
-} from "@heroicons/react/24/solid";
-import { motion, useInView } from "framer-motion";
+import React from "react";
+import Link from "next/link";
 
 function AboutSection() {
-  const ref = useRef();
-  const isInView = useInView(ref);
-  const [selectedCard, setSelectedCard] = useState(null); 
-
   const cards = [
     {
-      Icon: BeakerIcon,
-      title: "Desarrollo de Apps",
-      description: "Información detallada sobre desarrollo de apps...",
+      title: "Desarollo de Apps",
+      image: "/Layer3.png",
+      textColor: "text-white",
+      link: "/apps",
     },
     {
-      Icon: LockClosedIcon,
-      title: "Desarrollo de prototipos",
-      description: "Información detallada sobre desarrollo de prototipos...",
+      title: "Desarollo Web",
+      image: "/layer2.webp",
+      textColor: "text-white",
+      link: "/web",
     },
     {
-      Icon: GlobeAltIcon,
-      title: "Desarrollo Web",
-      description: "Información detallada sobre desarrollo web...",
-    },
-    {
-      Icon: MagnifyingGlassCircleIcon,
-      title: "Grabado Láser",
-      description: "Información detallada sobre grabado láser...",
+      title: "Desarollo de prototipos",
+      image: "/layer1.webp",
+      textColor: "text-gray-700",
+      link: "/prototipos",
     },
   ];
 
   return (
-    <section id="servicios"
-    className="flex flex-col items-center justify-center w-full bg-white border-t border-black"
-    ref={ref}
-    >
-      <motion.h1
-        initial={{ x: -50, opacity: 0 }}
-        animate={isInView ? { x: 0, opacity: 1 } : {}}
-        transition={{ duration: 0.5 }}
-        className="px-12 mt-12 mb-24 text-5xl font-bold text-black md:text-6xl lg:text-7xl"
-      >
-        Mira nuestros servicios
-      </motion.h1>
-
-      <div className="grid w-full max-w-screen-lg grid-cols-1 gap-8 px-4 md:grid-cols-2 lg:grid-cols-4">
-        {cards.map((item, index) => (
-          <motion.div
-            key={index}
-            className={`flex flex-col items-center p-6 transition duration-300 transform border bg-black shadow-large cursor-pointer rounded-xl justify-between bg-opacity-90 hover:-translate-y-1 hover:shadow-lg ${
-              selectedCard === index ? "h-[300px]" : "h-[200px]"
-            }`}
-            initial={{ y: -50, opacity: 0 }}
-            animate={isInView ? { y: 0, opacity: 1 } : {}}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            onClick={() =>
-              setSelectedCard(selectedCard === index ? null : index)
-            }
+    <main className="items-center justify-center p-8" id="servicios">
+      <h1 className="text-4xl font-bold text-center md:text-6xl">
+        Mira nuestro servicios
+      </h1>
+      <section className="grid grid-cols-1 gap-8 py-16 md:grid-cols-3">
+        {cards.map((card) => (
+          <div
+            key={card}
+            className="relative h-[500px] overflow-hidden shadow-lg rounded-2xl transform transition-transform duration-500 hover:scale-105"
           >
-            <item.Icon className="w-10 h-10 mb-4 text-white md:w-12 md:h-12 lg:w-14 lg:h-14" />
-            <span className="text-base text-white md:text-lg lg:text-xl">{item.title}</span>
-            {selectedCard === index && (
-              <div className="mt-4 text-xs text-gray-300 md:text-sm">
-                {item.description}
+            <Link href={card.link}>
+              <div
+                className={`absolute z-10 px-6 py-4 right-0 ${card.textColor}`}
+              >
+                <div className="mb-2 text-2xl font-bold">{card.title}</div>
               </div>
-            )}
-          </motion.div>
+              <img
+                className="object-cover w-full h-full"
+                src={card.image}
+                alt="Cover"
+              />
+            </Link>
+          </div>
         ))}
-      </div>
-    </section>
+      </section>
+    </main>
   );
 }
 

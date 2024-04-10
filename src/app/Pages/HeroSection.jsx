@@ -7,9 +7,9 @@ const HeroSection = () => {
   return (
     <section
       id="inicio"
-      className="grid items-center justify-center min-h-screen grid-cols-1 gap-6 p-4 bg-white lg:grid-cols-2"
+      className="grid items-center justify-center min-h-screen grid-cols-1 gap-6 p-4 bg-[#fcfcfc] lg:grid-cols-2"
     >
-      <div className="flex items-center justify-center w-full mt-20">
+      <div className="flex items-center justify-center w-full ">
         <motion.div
           initial={{ rotateZ: 0 }}
           animate={{ rotateZ: 90 }}
@@ -17,7 +17,7 @@ const HeroSection = () => {
           duration={100}
         >
           <Image
-            src="/bg.png" 
+            src="/bg.webp" 
             alt="Hero Image"
             width={750}
             height={300}

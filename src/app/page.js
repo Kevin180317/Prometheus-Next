@@ -9,31 +9,33 @@ import TeamSection from "./pages/TeamSection";
 import FooterSection from "./pages/FooterSection";
 import VideoSection from "./pages/VideoSection";
 import Formulario from "./pages/FormSection";
+import Banner from "./pages/BannerSection"
 export default function Home() {
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 1200);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setLoading(false);
+  //   }, 1200);
 
-    return () => clearTimeout(timer);
-  }, []);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
-  if (loading) {
-    return <Loading />;
-  }
+  // if (loading) {
+  //   return <Loading />;
+  // }
 
   return (
     <NextUIProvider>
       <main className="bg-white">
         <Navbar />
+        <Banner />
         <HeroSection />
         <VideoSection />
         <AboutSection />
         <TeamSection />
         <Formulario />
-        <FooterSection />
+        {/* <FooterSection /> */}
       </main>
     </NextUIProvider>
   );

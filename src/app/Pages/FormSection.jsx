@@ -1,175 +1,115 @@
-import React, {useState} from "react";
-import {
-  Container,
-  Flex,
-  Box,
-  Heading,
-  Text,
-  IconButton,
-  Button,
-  VStack,
-  HStack,
-  Wrap,
-  WrapItem,
-  FormControl,
-  FormLabel,
-  Input,
-  InputGroup,
-  InputLeftElement,
-  Textarea,
-} from "@chakra-ui/react";
-import {
-  MdPhone,
-  MdEmail,
-  MdLocationOn,
-  MdFacebook,
-  MdOutlineEmail,
-} from "react-icons/md";
-import { BsPerson, BsInstagram } from "react-icons/bs";
-import Link from "next/link";
+import React, { useState } from "react";
+import { FaFacebook, FaInstagram } from "react-icons/fa";
+import { AiOutlineMail, AiOutlinePhone, AiOutlineHome } from "react-icons/ai";
+import axios from "axios";
+import toast, { Toaster } from "react-hot-toast";
 
-function FormSection() {    
+function FormSection() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    asunto: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    axios
+      .post("https://prometheustij.com/formulario", formData)
+      .then((res) => {
+        console.log("Response:", res);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        toast.error("Hubo un error al enviar el formulario.");
+      });
+    setFormData({
+      name: "",
+      email: "",
+      asunto: "",
+    });
+    toast.success("Mensaje Enviado.");
+  };
+
   return (
-    <div className="p-8 mt-8 border-t border-black min-h-min">
-      <Container bg="#FFF" maxW="full" mt={0} centerContent overflow="hidden">
-        <Flex>
-          <Box
-            bg="black"
-            color="white"
-            borderRadius="lg"
-            m={{ sm: 4, md: 16, lg: 10 }}
-            p={{ sm: 5, md: 5, lg: 16 }}
-          >
-            <Box p={4}>
-              <Wrap spacing={{ base: 20, sm: 3, md: 5, lg: 20 }}>
-                <WrapItem>
-                  <Box>
-                    <Heading className="flex items-center justify-center">
-                      Contact
-                    </Heading>
-                    <Text mt={{ sm: 3, md: 3, lg: 5 }} className="text-white">
-                      Fill up the form below to contact
-                    </Text>
-                    <Box py={{ base: 5, sm: 5, md: 8, lg: 10 }}>
-                      <VStack pl={0} spacing={3} alignItems="flex-start">
-                        <Button
-                          size="md"
-                          height="48px"
-                          width="200px"
-                          variant="ghost"
-                          color="#DCE2FF"
-                          _hover={{ border: "2px solid #1C6FEB" }}
-                          leftIcon={<MdPhone color="#1970F1" size="20px" />}
-                        >
-                          +52 1 55 1234 5678
-                        </Button>
-                        <Button
-                          size="md"
-                          height="48px"
-                          width="200px"
-                          variant="ghost"
-                          color="#DCE2FF"
-                          _hover={{ border: "2px solid #1C6FEB" }}
-                          leftIcon={<MdEmail color="#1970F1" size="20px" />}
-                        >
-                          contact@prometheustij.com
-                        </Button>
-                        <Button
-                          size="md"
-                          height="48px"
-                          width="200px"
-                          variant="ghost"
-                          color="#DCE2FF"
-                          _hover={{ border: "2px solid #1C6FEB" }}
-                          leftIcon={
-                            <MdLocationOn color="#1970F1" size="20px" />
-                          }
-                        >
-                          Lorem, ipsum.
-                        </Button>
-                      </VStack>
-                    </Box>
-                    <HStack
-                      mt={{ lg: 10, md: 10 }}
-                      spacing={5}
-                      px={5}
-                      alignItems="flex-start"
-                    >
-                      <Link
-                        href="https://www.facebook.com/PrometheusRDTij"
-                        target="_blank"
-                      >
-                        <IconButton
-                          aria-label="facebook"
-                          size="lg"
-                          isRound={true}
-                          _hover={{ bg: "#0D74FF" }}
-                          icon={<MdFacebook size="28px" />}
-                        />
-                      </Link>
-                      <IconButton
-                        aria-label="discord"
-                        size="lg"
-                        isRound={true}
-                        _hover={{ bg: "#0D74FF" }}
-                        icon={<BsInstagram size="28px" />}
-                      />
-                    </HStack>
-                  </Box>
-                </WrapItem>
-                <WrapItem>
-                  <Box bg="white" borderRadius="lg">
-                    <Box m={8} color="#0B0E3F">
-                      <VStack spacing={5}>
-                        <FormControl id="name">
-                            <FormLabel>Your Name</FormLabel>
-                            <InputGroup borderColor="#E0E1E7">
-                              <InputLeftElement pointerEvents="none">
-                                <BsPerson color="gray.800" />
-                              </InputLeftElement>
-                              <Input type="text" size="md" name="name" />
-                            </InputGroup>
-                          </FormControl>
-                          <FormControl id="email">
-                            <FormLabel>Mail</FormLabel>
-                            <InputGroup borderColor="#E0E1E7">
-                              <InputLeftElement pointerEvents="none">
-                                <MdOutlineEmail color="gray.800" />
-                              </InputLeftElement>
-                              <Input type="text" size="md" name="email" />
-                            </InputGroup>
-                          </FormControl>
-                          <FormControl id="message">
-                            <FormLabel>Message</FormLabel>
-                            <Textarea
-                              borderColor="gray.300"
-                              _hover={{
-                                borderRadius: "gray.300",
-                              }}
-                              placeholder="message"
-                              name="message"
-                            />
-                          </FormControl>
-                          <FormControl id="submit" float="right">
-                            <Button
-                              type="submit"
-                              variant="solid"
-                              bg="#0D74FF"
-                              color="white"
-                              _hover={{}}
-                            >
-                              Send Message
-                            </Button>
-                          </FormControl> 
-                      </VStack>
-                    </Box>
-                  </Box>
-                </WrapItem>
-              </Wrap>
-            </Box>
-          </Box>
-        </Flex>
-      </Container>
+    <div className="items-center justify-center p-8" id="contact">
+      <h1 className="text-6xl font-bold text-center">Metodo de contacto</h1>
+      <div className="flex items-center justify-center mt-12">
+        <section className="grid grid-cols-1 border md:w-[900px] md:h-[550px] gap-12  rounded-2xl p-8 md:grid-cols-2 bg-black text-white overflow-auto">
+          <div className="flex flex-col justify-around gap-4 text-md md:text-2xl">
+            <div className="space-y-4">
+              <h1 className="text-4xl text-center">Contacto</h1>
+              <p className="text-2xl text-center">
+                Estamos ansiosos por recibir tu mensaje. ¡Contáctanos ahora!
+              </p>
+            </div>
+            <div className="flex flex-col items-center justify-center gap-4">
+              <div className="flex items-center gap-2">
+                <AiOutlinePhone />
+                <span>(669)-123-4567</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <AiOutlineMail />
+                <span>contact@prometheustij.com</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <AiOutlineHome />
+                <span>Tijuana, Baja California</span>
+              </div>
+              <div className="flex items-center justify-start gap-8">
+                <FaFacebook />
+                <FaInstagram />
+              </div>
+            </div>
+          </div>
+          <div className="p-4 overflow-auto text-black bg-white rounded">
+            <h1 className="text-xl text-center md:text-4xl">
+              Formulario de contacto
+            </h1>
+            <form onSubmit={handleSubmit}>
+              <div className="flex flex-col gap-4 py-2 text-md md:text-2xl">
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="Ingresa tu nombre"
+                  onChange={handleChange}
+                  value={formData.name}
+                  className="px-4 py-2 border rounded-xl"
+                />
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="Ingresa tu correo electronico"
+                  onChange={handleChange}
+                  value={formData.email}
+                  className="px-4 py-2 border rounded-xl"
+                />
+                <textarea
+                  name="asunto"
+                  id="asunto"
+                  placeholder="Ingresa tu asunto"
+                  onChange={handleChange}
+                  value={formData.asunto}
+                  className="px-4 py-2 border rounded-xl"
+                />
+                <button
+                  className="py-2 text-white bg-blue-500 rounded-xl hover:bg-blue-700"
+                  type="submit"
+                >
+                  Enviar
+                </button>
+              </div>
+            </form>
+            <Toaster position="top-right" />
+          </div>
+        </section>
+      </div>
     </div>
   );
 }

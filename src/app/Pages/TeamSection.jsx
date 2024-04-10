@@ -8,7 +8,7 @@ function TeamSection() {
 
   return (
     <section
-      className="flex flex-col items-center justify-center w-full mt-48 bg-white border-t border-black"
+      className="flex flex-col items-center justify-center w-full px-12 py-24 bg-[#fcfcfc] md:px-0"
       ref={ref}
       id="somos"
     >
@@ -21,36 +21,26 @@ function TeamSection() {
         Convertimos tus grandes ideas en soluciones impactantes.
       </motion.h1>
 
-      <div className="flex flex-col items-start justify-around w-full max-w-screen-xl space-y-8 md:space-y-0 md:flex-row">
         {/* Columna de texto con íconos */}
-        <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          animate={isInView ? { y: 0, opacity: 1 } : {}}
-          transition={{ duration: 1 }}
-          className="flex flex-col mt-16 space-y-4"
-        >
-          {[
-            { text: 'Somos una empresa 100% Tijuanense que conoce el dinamismo binacional', icon: '☕' }, 
-            { text: 'Nuestro grupo de expertos se adaptarán a tus requerimientos', icon: '🔧' }, 
-            { text: 'Te guiaremos para moldear tus mejores ideas en productos innovadores.', icon: '🔨' }, 
-          ].map((item, index) => (
-            <div key={index} className="flex items-center mt-8 space-x-2 md:mt-28">
-              <span className="text-2xl">{item.icon}</span>
-              <p className="text-lg text-black md:text-xl">{item.text}</p>
+        <div className="grid grid-cols-1 gap-8 my-24 md:grid-cols-2">
+          <div className="space-y-16 md:w-[600px] ">
+            <div className="flex items-center gap-4">
+              <Image src="/icono1.png" alt="icono" width={50} height={50} />
+              <span className="text-xl">Somos una empresa 100% Tijuanense que conoce el dinamismo binacional.</span>
             </div>
-          ))}
-        </motion.div>
-        
-        {/* Columna de imagen */}
-        <motion.div
-          initial={{ y: -50, opacity: 0 }}
-          animate={isInView ? { y: 0, opacity: 1 } : {}}
-          transition={{ duration: 0.5 }}
-          className="flex-shrink-0"
-        >
-          <Image src="/team.jpg" alt="Descripción de la imagen" height={500} width={500} className="h-auto mt-8 md:mt-28" />
-        </motion.div>
-      </div>
+            <div className="flex items-center gap-4">
+              <Image src="/icono2.png" alt="icono" width={50} height={50} />
+              <span className="text-xl">Nuestro grupo de expertos se adaptaran a tus requerimientos.</span>
+            </div>
+            <div className="flex items-center gap-4">
+              <Image src="/icono3.png" alt="icono" width={50} height={50} />
+              <span className="text-xl">Te guiaremos para moldear tus mejores ideas en productos innovadores.</span>
+            </div>
+          </div>
+          <div>
+            <Image src="/team.webp" className="rounded-lg" alt="team" width={500} height={500} />
+          </div>
+        </div>
     </section>
   );
 }
