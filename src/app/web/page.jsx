@@ -1,60 +1,56 @@
 import React from "react";
-
+import { Card, CardFooter, Image, Button } from "@nextui-org/react";
+import Link from "next/link";
 function page() {
   const apps = [
     {
       img: "/mockup1.png",
-      title: "Title 1",
-      description: "Descripción de la web 1...",
+      title: "Cetotj",
+      href: "https://cetotj.netlify.app/",
     },
     {
       img: "/mockup2.png",
-      title: "Title 2",
-      description: "Descripción de la web 2...",
+      title: "Medical-Commerce",
+      href: "https://medical-commerce.netlify.app/",
     },
     {
       img: "/mockup3.png",
-      title: "Title 3",
-      description: "Descripción de la web 3...",
+      title: "photography-john",
+      href: "https://photography-john.netlify.app/",
     },
   ];
 
   return (
     <main>
       <section>
-        <div className="bg-black h-[600px] w-full justify-center items-center flex">
+        <div className="flex items-center justify-center w-full bg-black">
           <img src="/Artboard 3.png" className="w-full" alt="" />
         </div>
-        <div className="my-16">
+        <div className="my-16 mb-8">
           <h1 className="mb-8 text-6xl text-center text-black">
             Lista de Paginas web Realizadas
           </h1>
           <div className="flex items-center justify-center">
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
               {apps.map((app, index) => (
-                <div
-                  key={index}
-                  className="m-12 overflow-hidden bg-white rounded-lg md:w-[350px] shadow-black shadow-md"
-                >
-                  <div className="flex items-center justify-center h-48 bg-gray-200">
-                    <img
-                      src={app.img}
+                <Link href={app.href} key={index} target="_blank">
+                  <Card
+                    key={index}
+                    isFooterBlurred
+                    radius="lg"
+                    className="m-4 border-none md:m-12"
+                  >
+                    <Image
                       alt={app.title}
-                      className="object-cover w-full h-full"
+                      className="object-cover md:h-[700px] md:w-[400px] hover:scale-105 transition-transform duration-500 ease-in-out"
+                      src={app.img}
+                      width="100%"
                     />
-                  </div>
-                  <div className="p-4">
-                    <h2 className="text-2xl font-semibold">{app.title}</h2>
-                    <p className="mt-2 text-2xl text-gray-700">
-                      {app.description}
-                    </p>
-                  </div>
-                  <div className="flex justify-start p-4">
-                    <button className="px-12 py-2 text-white bg-blue-500 rounded hover:bg-blue-700">
-                      Ver más
-                    </button>
-                  </div>
-                </div>
+                    <CardFooter className="absolute bottom-0 z-10 w-full py-8 text-center text-white bg-black bg-opacity-50">
+                      <p className="text-xl">{app.title}</p>
+                    </CardFooter>
+                  </Card>
+                </Link>
               ))}
             </div>
           </div>
