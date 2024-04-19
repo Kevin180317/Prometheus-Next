@@ -1,26 +1,29 @@
+import Carrousel from "../../components/Carrousel";
+
 export function generateStaticParams() {
-  return [
-    { id: "tablas" },
-    { id: "prototipado" },
-    { id: "laser" },
-    { id: "3d" },
-  ];
+  return [{ id: "prototipo" }, { id: "laser" }, { id: "3d" }];
 }
 
 export default function Page({ params }) {
   const { id } = params;
   const path = [
     {
-      id: "petsafe",
-      image1: "/1.png",
-      image2: "/2.png",
-      image3: "/3.png",
+      id: "prototipo",
+      image1: "/protipo1.jpg",
+      image2: "/protipo2.jpg",
+      image3: "/protipo3.jpg",
     },
     {
-      id: "recipe-book",
-      image1: "/1.1.png",
-      image2: "/1.2.png",
-      image3: "/1.3.png",
+      id: "laser",
+      image1: "/laser1.jpg",
+      image2: "/laser2.jpg",
+      image3: "/laser3.jpg",
+    },
+    {
+      id: "3d",
+      image1: "/3d_1.jpg",
+      image2: "/3d_2.jpg",
+      image3: "/3d_3.jpg",
     },
   ];
 
@@ -28,28 +31,13 @@ export default function Page({ params }) {
     <main>
       <section>
         <div className="flex items-center justify-center w-full bg-black">
-          <img src="/Artboard 2.png" className="w-full" alt="" />
+          <img src="/Artboard 1.png" className="w-full" alt="" />
         </div>
-        <h1 className="my-4 text-4xl text-center text-black uppercase">{id}</h1>
-        <div className="flex items-center justify-center">
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-            {path
-              .filter((app) => app.id === id)
-              .map((app, index) => (
-                <>
-                  <div key={index + "a"}>
-                    <img src={app.image1} className="w-full" alt="" />
-                  </div>
-                  <div key={index + "b"}>
-                    <img src={app.image2} className="w-full" alt="" />
-                  </div>
-                  <div key={index + "c"}>
-                    <img src={app.image3} className="w-full" alt="" />
-                  </div>
-                </>
-              ))}
-          </div>
-        </div>
+        <h1 className="my-4 text-xl text-center text-black uppercase md:text-7xl">
+          Prototipado: {id}
+        </h1>
+
+        <Carrousel path={path} id={id} />
       </section>
     </main>
   );
